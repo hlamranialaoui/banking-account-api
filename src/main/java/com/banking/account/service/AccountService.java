@@ -30,7 +30,7 @@ public class AccountService {
                     .setOperation(OperationType.DEPOSIT));
             System.out.println("Deposit with success");
         }else {
-            System.out.println("Your amount is null or negative");
+            System.err.println("Your amount is null or negative");
         }
         return balance;
     }
@@ -46,7 +46,7 @@ public class AccountService {
                     .setOperation(OperationType.WITHDRAWAL));
             System.out.println("withdrawal with success");
         }else {
-            System.out.println("Your withdrawal amount is to big to balance, is null or is negative");
+            System.err.println("Your withdrawal amount is to big to balance, is null or is negative");
         }
         return balance;
     }
@@ -60,10 +60,14 @@ public class AccountService {
     }
 
     public void getStatementsHistory(){
-        if(null == statementPrintings || statementPrintings.isEmpty()) {
+        if(statementPrintings == null || statementPrintings.isEmpty()) {
             System.out.println("History is empty");
         }
         statementPrintings.forEach(System.out::println);
+    }
+
+    public int statementsNumber(){
+       return statementPrintings == null || statementPrintings.isEmpty() ? 0 : statementPrintings.size();
     }
 
     private boolean isAmountPositive(BigDecimal amount){

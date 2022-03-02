@@ -41,7 +41,7 @@ public class StatementPrinting {
 
     @Override
     public String toString() {
-        return "Statement [operation=" + operation + ", date=" + date + ", amount=" + amount + ", balance=" + balance
+        return "Statement [operation=" + operation.getName() + ", date=" + date + ", amount=" + amount + ", balance=" + balance
                 + "]";
     }
 }
